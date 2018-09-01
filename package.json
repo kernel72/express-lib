@@ -4,16 +4,19 @@
   "description": "The library with middlewares and utilites for expressjs.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest --coverage"
   },
   "keywords": [
     "express",
     "middlewares",
     "utilites"
   ],
-  "engines" : { 
-    "node" : ">=8.0.0" 
+  "engines": {
+    "node": ">=8.0.0"
   },
   "author": "kernel72",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^23.5.0"
+  }
 }
