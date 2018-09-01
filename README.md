@@ -10,26 +10,28 @@ npm install --save express-lib
 const {bodyNotEmpty, ...} = require('express-lib');
 ```
 
-#Usage
+# Usage
 
 Middlewares: 
-    - bodyNotEmpty
-    - catchError
-    - errorsMainHandler
-    - getOr404
+
+- ```bodyNotEmpty```
+- ```catchError```
+- ```errorsMainHandler```
+- ```getOr404```
 
 Utils: 
-    - notFoundError
-    - internalServerError
-    - badRequestError
-    - conflictError
-    - getHttpError
+
+- ```notFoundError```
+- ```internalServerError```
+- ```badRequestError```
+- ```conflictError```
+- ```getHttpError```
 
 
 ## bodyNotEmpty()
 
 Middleware that checks is body in request is empty or not present.
-If it does then calls next() with Bad Request error
+If it does then calls ```next()``` with Bad Request error
 
 Example:
 
@@ -45,7 +47,7 @@ app.post('/',
 
 ## catchError(middlewareFunc)
 
-Wraps middleware func to catch any thown error in it and pass to next().
+Wraps middleware function to catch any thown error in it and pass to ```next()```.
 
 Example:
 
@@ -62,7 +64,7 @@ app.get('/',
 
 ## errorsMainHandler({ showStack = true, logger })
 
-Middleware that catches all errors passed to next() and calls response in json format like 
+Middleware that catches all errors passed to ```next()``` and calls response in json format like 
 
 ```javascript
 {
@@ -74,8 +76,8 @@ Middleware that catches all errors passed to next() and calls response in json f
 
 Should be the last middleware in the app.
 Receives optional params:
-    - showStack (true by default) - Show/hide stacktrace
-    - logger - if specified make call logger.error() with received error
+    - ```showStack``` (true by default) - Show/hide stacktrace
+    - ```logger``` - if specified make call logger.error() with received error
 
 Example:
 
@@ -108,9 +110,9 @@ app.use(errorsMainHandler({
 ## getOr404(fieldName, getFunction, customErrorMessage)
 
 Middleware that calls ```getFunction(req)``` to retrieve some data and populates ```res.locals``` object with field ```fieldName``` and retrieved data.
-If getFunction returns undefined then next() with "Not Found" error calls.
+If ```getFunction``` returns undefined then ```next()``` with "Not Found" error calls.
 
-customErrorMessage - is optional and overrides default 'Not Found' message
+```customErrorMessage``` - is optional and overrides default 'Not Found' message
 
 Example
 
